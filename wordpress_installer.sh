@@ -54,7 +54,7 @@ sudo bash -c "cat >> /etc/apache2/sites-available/$FQDN_SANITIZED.conf <<'EOL'
 	# enabled or disabled at a global level, it is possible to
 	# include a line for only one particular virtual host. For example the
 	# following line enables the CGI configuration for this host only
-	# after it has been globally disabled with "a2disconf".
+	# after it has been globally disabled with 'a2disconf'.
 	#Include conf-available/serve-cgi-bin.conf
 </VirtualHost>
 
