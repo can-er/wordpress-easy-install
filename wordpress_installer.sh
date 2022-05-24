@@ -24,7 +24,6 @@ sudo chmod 644 -R /var/www/$FQDN_SANITIZED/
 sudo chmod 755 -R /var/www/$FQDN_SANITIZED
 sudo chmod 775 -R /var/www/$FQDN_SANITIZED/wp-content
 
-
 sudo bash -c "cat >> /etc/apache2/sites-available/$FQDN_SANITIZED.conf <<'EOL'
 
 <VirtualHost *:80>
@@ -59,6 +58,11 @@ sudo bash -c "cat >> /etc/apache2/sites-available/$FQDN_SANITIZED.conf <<'EOL'
 </VirtualHost>
 
 EOL"
+
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.22-1_all.deb
+sudo apt install ./mysql-apt-config_0.8.22-1_all.deb
+sudo apt update
+sudo apt install mysql-server
 
 echo "CREATE DATABASE $FQDN_SANITIZED;" > database_conf.sql
 mysql -u root --password="$db_pass" --connect-expired-password < database_conf.sql
