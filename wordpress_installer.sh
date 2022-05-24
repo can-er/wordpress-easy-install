@@ -16,7 +16,7 @@ FQDN_SANITIZED="$(echo "$FQDN" | sed 's/[^A-Za-z0-9]/_/g' | sed 's/__*/_/g')"
 
 sudo mkdir /var/www/$FQDN_SANITIZED
 sudo wget https://wordpress.org/latest.tar.gz -O /var/www/$FQDN_SANITIZED/latest.tar.gz
-sudo tar xfz ./latest.tar.gz --directory /var/www/$FQDN_SANITIZED
+sudo tar xfz /var/www/$FQDN_SANITIZED/latest.tar.gz --directory /var/www/$FQDN_SANITIZED
 sudo mv /var/www/$FQDN_SANITIZED/wordpress/* /var/www/$FQDN_SANITIZED/
 sudo rm -rf /var/www/$FQDN_SANITIZED/wordpress
 sudo chown -R www-data:www-data /var/www/$FQDN_SANITIZED
